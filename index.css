@@ -23,9 +23,8 @@ body {
 .wrapper {
   position: absolute;
   top: 100%;
-  left: 50%;
-  width: 400px;
-  margin-left: -200px;
+  width: 60%;
+  margin: 0 20%;
   font: 300 30px/1 'Open Sans Condensed', sans-serif;
   text-align: center;
   text-transform: uppercase;
@@ -34,20 +33,22 @@ body {
 }
 
 .movie {
-  margin-bottom: 25px;
+  margin: 25px;
   font-size: 70px;
   width: initial;
 }
 
 .job {
   margin-top: 50px;
-  margin-bottom: 15px;
-  font-size: 18px;
+  margin-bottom: 40px;
+  font-size: 38px;
 }
 
 .name {
   margin-bottom: 15px;
-  font-size: 35px;
+  font-size: 28px;
+  width: 33%;
+  display: inline-block;
 }
 
 @keyframes credits {
@@ -55,6 +56,6 @@ body {
     top: 100%;
   }
   100% {
-    top: -500%;
+    top: -1500%;
   }
 }

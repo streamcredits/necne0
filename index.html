@@ -10,7 +10,7 @@
       <div class='movie'>{{ end_message }}</div>
       <div class='job'>Followers</div>
 
-      <div class='name' v-for="follower in followers">{{ follower.user.display_name }}</div>
+      <span class='name' v-for="follower in followers">{{ follower.user.display_name }}</span>
     </div>
 
     <script src="https://cdn.jsdelivr.net/vue/1.0.16/vue.min.js" charset="utf-8"></script>
