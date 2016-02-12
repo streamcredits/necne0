@@ -8,8 +8,13 @@
   <body>
     <div class='wrapper' id="credits">
       <div class='movie'>{{ end_message }}</div>
-      <div class='job'>Followers</div>
+      <div class='job'>Spéciales</div>
+      <span class='name' v-for="special in specials">{{ special }}</span>
 
+      <div class='job'>Donateurs</div>
+      <span class='name' v-for="donateur in donators">{{ donateur }}</span>
+
+      <div class='job'>Followers</div>
       <span class='name' v-for="follower in followers">{{ follower.user.display_name }}</span>
     </div>
 
@@ -27,6 +32,8 @@
           username: "necne0",
           end_message: "Merci !",
 
+          specials: ["HaZe_tv", "Totor5", "Skelrex44"],
+          donators: ["HaZe_tv", "Totor5", "Skelrex44", "Vlink5", "Swizz540", "Docwilos78", "Takafrag", "Sup3rMan88"],
           followers: null,
         },
 
