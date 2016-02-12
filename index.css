@@ -1,0 +1,59 @@
+/*
+  All credits are to Oliver Knoblich.
+  http://codepen.io/oknoblich/pen/vfJxr
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #333;
+  overflow: hidden;
+}
+
+.wrapper {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 400px;
+  margin-left: -200px;
+  font: 300 30px/1 'Open Sans Condensed', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: #eaeaea;
+  animation: 60s credits linear infinite;
+}
+
+.movie {
+  margin-bottom: 25px;
+  font-size: 70px;
+}
+
+.job {
+  margin-top: 50px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.name {
+  margin-bottom: 15px;
+  font-size: 35px;
+}
+
+@keyframes credits {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -500%;
+  }
+}

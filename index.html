@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Automated twitch credits</title>
+    <link rel="stylesheet" href="./index.css" charset="utf-8">
+  </head>
+  <body>
+    <div class='wrapper' id="credits">
+      <div class='movie'>{{ end_message }}</div>
+      <div class='job'>Followers</div>
+
+      <div class='name' v-for="follower in followers">{{ follower.user.display_name }}</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/vue/1.0.16/vue.min.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/0.7.0/vue-resource.min.js" charset="utf-8"></script>
+    <script>
+      var credits = new Vue({
+        el: '#credits',
+
+        http: {
+          root: 'https://api.twitch.tv/kraken/'
+        },
+
+        data: {
+          username: undefined,
+          end_message: undefined,
+
+          followers: null,
+        },
+
+        ready: function () {
+          var _ = this;
+          var array_followers = [];
+
+          var contentNext = function (next_url) {
+            _.$resource(next_url).get().then(function (response) {
+              if(response.data.follows.length > 0) {
+                array_followers = array_followers.concat(response.data.follows);
+                contentNext(response.data._links.next);
+              }
+
+              _.$set('followers', array_followers);
+            });
+          };
+
+          _.$resource('channels/{channel}/follows', { limit: 100 }).get({ channel: _.$get('username') }).then(function (response) {
+            if(response.data.follows.length > 0) {
+              array_followers = array_followers.concat(response.data.follows);
+              contentNext(response.data._links.next);
+            }
+
+            _.$set('followers', array_followers);
+          });
+        }
+
+      });
+    </script>
+  </body>
+</html>
