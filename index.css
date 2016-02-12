@@ -36,6 +36,7 @@ body {
 .movie {
   margin-bottom: 25px;
   font-size: 70px;
+  width: initial;
 }
 
 .job {
