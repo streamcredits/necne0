@@ -16,11 +16,24 @@
 
       <div class='job'>Followers</div>
       <span class='name' v-for="follower in followers">{{ follower.user.display_name }}</span>
+
+      <div class='job'></div>
+      <span class='name'>Une création de Swizz540 pour Necne0</span>
     </div>
 
     <script src="https://cdn.jsdelivr.net/vue/1.0.16/vue.min.js" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/vue.resource/0.7.0/vue-resource.min.js" charset="utf-8"></script>
     <script>
+      function getParameterByName(name, url) {
+          if (!url) url = window.location.href;
+          name = name.replace(/[\[\]]/g, "\\$&");
+          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+              results = regex.exec(url);
+          if (!results) return '';
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+
       var credits = new Vue({
         el: '#credits',
 
@@ -32,14 +45,17 @@
           username: "necne0",
           end_message: "Merci !",
 
-          specials: ["HaZe_tv", "Totor5", "Skelrex44"],
-          donators: ["HaZe_tv", "Totor5", "Skelrex44", "Vlink5", "Swizz540", "Docwilos78", "Takafrag", "Sup3rMan88"],
+          specials: null,
+          donators: null,
           followers: null,
         },
 
         ready: function () {
           var _ = this;
           var array_followers = [];
+
+          this.$set('donators', getParameterByName('donateurs').split(","));
+          this.$set('specials', getParameterByName('specials').split(","));
 
           var contentNext = function (next_url) {
             _.$resource(next_url).get().then(function (response) {

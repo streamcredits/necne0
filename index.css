@@ -3,7 +3,7 @@
   http://codepen.io/oknoblich/pen/vfJxr
 */
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300);
 
 * {
   margin: 0;
@@ -16,20 +16,21 @@ html, body {
 }
 
 body {
-  background: #333;
+  background: #00FF00;
+  /*background: #333;*/
   overflow: hidden;
 }
 
 .wrapper {
   position: absolute;
-  top: 100%;
+  top: 200%;
   width: 60%;
   margin: 0 20%;
-  font: 300 30px/1 'Open Sans Condensed', sans-serif;
+  font: 300 30px/1 'Ubuntu', sans-serif;
   text-align: center;
   text-transform: uppercase;
   color: #eaeaea;
-  animation: 60s credits linear infinite;
+  animation: 50s credits linear infinite;
 }
 
 .movie {
@@ -55,9 +56,9 @@ body {
 
 @keyframes credits {
   0% {
-    top: 100%;
+    top: 200%;
   }
   100% {
-    top: -1500%;
+    top: -1000%;
   }
 }
